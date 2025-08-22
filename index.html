@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alerta E.A. — Boletín Digital Automatizado</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>html{scroll-behavior:smooth}</style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-600 text-white font-bold">EA</span>
+        <span class="text-lg font-semibold text-gray-900">Alerta E.A.</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#como-funciona" class="text-gray-600 hover:text-gray-900">Cómo funciona</a>
+        <a href="#beneficios" class="text-gray-600 hover:text-gray-900">Beneficios</a>
+        <a href="#faq" class="text-gray-600 hover:text-gray-900">FAQ</a>
+        <a href="#contacto" class="inline-flex items-center px-4 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 shadow">Suscribirme</a>
+      </div>
+      <a href="#contacto" class="md:hidden inline-flex items-center px-3 py-2 rounded-lg bg-indigo-600 text-white">Suscribirme</a>
+    </nav>
+  </header>
+
+  <main class="pt-16">
+    <!-- HERO (con IMG para evitar problemas de referrer en backgrounds) -->
+    <section id="hero" class="relative min-h-[80vh] w-full flex items-center">
+      <img referrerpolicy="no-referrer" src="https://img.freepik.com/foto-gratis/fisioterapeuta-haciendo-tratamiento-curativo-espalda-mujer-dolor-espalda-tratamiento-paciente-medico-masaje-terapeuta-sindrome-oficina_657921-323.jpg" alt="Fisioterapeuta tratando dolor de espalda" class="absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight">Boletín automatizado sobre Espondiloartritis (EA)</h1>
+        <p class="mt-4 text-lg md:text-xl text-gray-100">Recibe alertas sobre medicación, investigaciones y recursos prácticos en España. Filtros básicos para lo que de verdad te importa.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#contacto" class="inline-flex justify-center px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg">Quiero suscribirme</a>
+          <a href="#como-funciona" class="inline-flex justify-center px-6 py-3 rounded-2xl bg-white/10 ring-1 ring-white/40 hover:bg-white/20">Cómo funciona</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS / CARDS -->
+    <section id="beneficios" class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
+      <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <img referrerpolicy="no-referrer" src="https://img.freepik.com/foto-gratis/mujer-lado-dolor-espalda-mientras-trabaja-casa_23-2148813151.jpg" alt="Dolor de espalda trabajando en casa" class="w-full h-56 object-cover" onerror="this.style.display='none'">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold">Información clara y al día</h3>
+          <p class="mt-2 text-gray-600">Actualizaciones sobre tratamientos, ensayos y guías clínicas traducidas a lenguaje sencillo.</p>
+        </div>
+      </article>
+      <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <img referrerpolicy="no-referrer" src="https://img.freepik.com/foto-gratis/joven-fisioterapeuta-ayudando-paciente-problemas-espalda_23-2149115627.jpg" alt="Fisioterapeuta ayudando a paciente" class="w-full h-56 object-cover" onerror="this.style.display='none'">
+        <div class="p-6">
+          <h3 class="text-xl font-semibold">Consejos prácticos</h3>
+          <p class="mt-2 text-gray-600">Pautas de ejercicio en casa, ergonomía y manejo del dolor validadas por especialistas.</p>
+        </div>
+      </article>
+      <article class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+        <div class="w-full h-56 bg-gradient-to-br from-indigo-50 to-indigo-100 flex items-center justify-center">
+          <div class="text-center p-6">
+            <div class="text-4xl">🔎</div>
+            <p class="mt-3 text-lg font-semibold">Filtros por interés</p>
+            <p class="text-gray-600">Elige temas: fármacos, investigación, ejercicio, vida diaria.</p>
+          </div>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold">Boletín personalizado</h3>
+          <p class="mt-2 text-gray-600">Recibe solo lo relevante para tu situación y preferencias.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section id="como-funciona" class="bg-white py-16">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-gray-900 text-center">Cómo funciona</h2>
+        <div class="mt-10 grid md:grid-cols-3 gap-8">
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-3xl">1️⃣</div>
+            <h3 class="mt-2 font-semibold">Elige tus temas</h3>
+            <p class="text-gray-600 mt-1">Tratamientos, investigación, ejercicio, estilo de vida…</p>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-3xl">2️⃣</div>
+            <h3 class="mt-2 font-semibold">Nosotros filtramos</h3>
+            <p class="text-gray-600 mt-1">Usamos fuentes fiables en España y las resumimos en claro.</p>
+          </div>
+          <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div class="text-3xl">3️⃣</div>
+            <h3 class="mt-2 font-semibold">Recibes tu boletín</h3>
+            <p class="text-gray-600 mt-1">En tu email, con la frecuencia que prefieras.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO / SUSCRIPCIÓN -->
+    <section id="contacto" class="bg-indigo-50 py-16">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="bg-white rounded-2xl shadow-xl border border-indigo-100 p-8">
+          <h2 class="text-3xl font-bold text-center text-indigo-700">Suscríbete al boletín</h2>
+          <p class="mt-2 text-center text-gray-600">Déjanos tus datos y prioridades. Te enviaremos las primeras actualizaciones pronto.</p>
+
+          <form id="contact-form" class="mt-8 grid grid-cols-1 gap-5">
+            <div>
+              <label for="user_name" class="block text-sm font-medium text-gray-700">Nombre</label>
+              <input id="user_name" name="user_name" type="text" required class="mt-1 w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+            <div>
+              <label for="user_email" class="block text-sm font-medium text-gray-700">Email</label>
+              <input id="user_email" name="user_email" type="email" required class="mt-1 w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
+            </div>
+            <div>
+              <label for="topic" class="block text-sm font-medium text-gray-700">Temas de interés</label>
+              <select id="topic" name="topic" class="mt-1 w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+                <option value="tratamientos">Tratamientos y fármacos</option>
+                <option value="investigacion">Investigación y ensayos</option>
+                <option value="ejercicio">Ejercicio y fisioterapia</option>
+                <option value="vida">Vida diaria y consejos</option>
+              </select>
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700">Mensaje (opcional)</label>
+              <textarea id="message" name="message" rows="4" class="mt-1 w-full px-4 py-3 border rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" placeholder="Cuéntanos brevemente tu situación o necesidades"></textarea>
+            </div>
+            <button id="submit-btn" type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-xl shadow hover:bg-indigo-700 disabled:opacity-60">Enviar</button>
+            <p id="form-message" class="text-center text-sm" aria-live="polite"></p>
+          </form>
+          <p class="mt-3 text-xs text-gray-500 text-center">Protegemos tus datos. Puedes darte de baja cuando quieras.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="max-w-5xl mx-auto px-6 py-16">
+      <h2 class="text-3xl font-bold text-gray-900 text-center">Preguntas frecuentes</h2>
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <details class="bg-white rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">¿De dónde obtenéis la información?</summary>
+          <p class="mt-2 text-gray-600">De fuentes sanitarias y publicaciones fiables en España y Europa, revisadas y resumidas de forma comprensible.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">¿Con qué frecuencia recibiré el boletín?</summary>
+          <p class="mt-2 text-gray-600">Podrás elegir la frecuencia (semanal o mensual) en el proceso de suscripción.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">¿Tiene coste?</summary>
+          <p class="mt-2 text-gray-600">Habrá un plan gratuito con lo esencial y opciones premium para funciones avanzadas.</p>
+        </details>
+        <details class="bg-white rounded-2xl border border-gray-200 p-5">
+          <summary class="font-semibold cursor-pointer">¿Puedo cancelar cuando quiera?</summary>
+          <p class="mt-2 text-gray-600">Sí, con un clic desde cualquier correo del boletín.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-sm">© 2025 Alerta E.A. – Boletín Digital</p>
+      <p class="text-sm">Contacto: <a href="mailto:miguel.lillo@proton.me" class="underline decoration-indigo-500">miguel.lillo@proton.me</a></p>
+    </div>
+  </footer>
+
+  <!-- EMAILJS INIT + ENVÍO -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Inicializa EmailJS con tu Public Key
+      emailjs.init('FXs2_76qSt0pmCPyW');
+
+      const form = document.getElementById('contact-form');
+      const btn = document.getElementById('submit-btn');
+      const msg = document.getElementById('form-message');
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        msg.textContent = '';
+        btn.disabled = true; btn.textContent = 'Enviando…';
+
+        emailjs.sendForm('service_dnexi93', 'template_hld2k5f', form)
+          .then(function() {
+            msg.textContent = '✅ Mensaje enviado con éxito. Revisa tu correo.';
+            msg.className = 'text-center text-sm text-green-600';
+            form.reset();
+          })
+          .catch(function(error) {
+            msg.textContent = '❌ Error al enviar: ' + (error?.text || JSON.stringify(error));
+            msg.className = 'text-center text-sm text-red-600';
+          })
+          .finally(function(){
+            btn.disabled = false; btn.textContent = 'Enviar';
+          });
+      });
+    });
+  </script>
+</body>
+</html>
